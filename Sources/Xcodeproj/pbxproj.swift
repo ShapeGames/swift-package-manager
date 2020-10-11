@@ -320,7 +320,7 @@ public func xcodeProject(
 
     // Determine the set of targets to generate in the project by excluding
     // any system targets.
-    let targets = graph.reachableTargets.filter({ $0.type != .systemModule })
+    let targets = graph.reachableTargets.filter({ $0.type != .systemModule && $0.type != .binary })
 
     // If we have any external packages, we also add a `Dependencies` group at
     // the top level, along with a sources subgroup for each package.
